@@ -54,7 +54,7 @@ def prediction_to_serialized_example(p):
     features = {}
     features['post_id'] = tf.train.Feature(int64_list=tf.train.Int64List(value=[p['post_id']])) 
     features['input_ids'] = tf.train.Feature(int64_list=tf.train.Int64List(value=p['input_ids'])) 
-    features['embedding'] = tf.train.Feature(float_list=tf.train.FloatList(value=p['embedding']))
+    features['embeddings'] = tf.train.Feature(float_list=tf.train.FloatList(value=p['embeddings']))
     features['probabilities'] = tf.train.Feature(float_list=tf.train.FloatList(value=p['probabilities']))
     return tf.train.Example(features=tf.train.Features(feature=features)).SerializeToString()
 
