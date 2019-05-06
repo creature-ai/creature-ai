@@ -49,3 +49,22 @@ def post_to_text_blob(p):
 
 def parse_posts(posts):
     return [{'post_id': p['post_id'], 'text': post_to_text_blob(p)} for p in posts]
+
+def prediction_to_serialized_example(p):
+    features = {}
+    features['post_id'] = tf.train.Feature(int64_list=tf.train.Int64List(value=[p['post_id']])) 
+    features['input_ids'] = tf.train.Feature(int64_list=tf.train.Int64List(value=p['input_ids'])) 
+    features['embedding'] = tf.train.Feature(float_list=tf.train.FloatList(value=p['embedding']))
+    features['probabilities'] = tf.train.Feature(float_list=tf.train.FloatList(value=p['probabilities']))
+    return tf.train.Example(features=tf.train.Features(feature=features)).SerializeToString()
+
+def write_predictions(predictions, out_base):
+    writer = None
+    for i, p in enumerate(predictions):
+        if i % 20000 == 0:
+            print(i)
+            if writer is not None:
+                writer.flush()
+                writer.close()
+            writer = tf.io.TFRecordWriter(out_base + str(i) + '.tfrecord')
+        writer.write(prediction_to_serialized_example(p))      
