@@ -12,7 +12,7 @@ export class Categories extends React.Component {
 		this.state = {
 			list: [],
 			isLoading: true,
-			selectedSubcategory: null
+			subcategory: null
 		};
 	}
 
@@ -27,7 +27,8 @@ export class Categories extends React.Component {
 	}
 
 	handleSubcategorySelection(subcategory) {
-		this.setState({ selectedSubcategory: subcategory });
+		this.setState({ subcategory });
+		this.props.onSelect(subcategory);
 	}
 
 	render() {

@@ -10,7 +10,7 @@ const MainText = () => {
 	return (
 		<Row className="pb-3">
 			<Col xs={12}>
-				<h1>Search anything what you want</h1>
+				<h1>Search anything you want</h1>
 			</Col>
 		</Row>
 	)

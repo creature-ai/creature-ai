@@ -25,7 +25,9 @@ class ListItem extends React.Component {
 				<h5 className="m-0 d-inline-block">
 					{item.name}
 				</h5>
-				<FontAwesomeIcon icon={'chevron-right'} className="float-right mt-1 text-muted"></FontAwesomeIcon>
+				{item.subcategories.length > 0 &&
+					<FontAwesomeIcon icon={'chevron-right'} className="float-right mt-1 text-muted"></FontAwesomeIcon>
+				}
 			</ListGroupItem>
 		)
 	}
@@ -43,9 +45,11 @@ export class Category extends React.Component {
 			<div className={styles.categoryItem}>
 				<Dropdown drop={'right'}>
 					<Dropdown.Toggle as={ListItem} item={item}></Dropdown.Toggle>
-					{item.subcategories.length ? <Dropdown.Menu>
-						<Subcategories list={item.subcategories} onSelection={(e) => this.handleSelection(e)}></Subcategories>
-					</Dropdown.Menu> : ''}
+					{item.subcategories.length > 0 &&
+						<Dropdown.Menu>
+							<Subcategories list={item.subcategories} onSelection={(e) => this.handleSelection(e)}></Subcategories>
+						</Dropdown.Menu>
+					}
 				</Dropdown>
 			</div>
 		)
