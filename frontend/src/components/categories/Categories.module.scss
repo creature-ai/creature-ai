@@ -1,0 +1,20 @@
+.categoryItem {
+	position: relative;
+
+	.itemIcon {
+		font-size: 2px;
+	}
+
+	.subcategoriesContainer {
+		position: absolute;
+		right: 0px;
+		top: 0;
+		z-index: 99;
+		min-width: 280px;
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}
