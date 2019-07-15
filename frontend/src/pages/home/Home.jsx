@@ -2,6 +2,8 @@ import React from 'react';
 //import { MainSearchBar } from '../../components/main-search-bar/MainSearchBar';
 import { Categories } from '../../components/categories/list/Categories';
 import { Results } from '../../components/results/Results';
+import axios from 'axios';
+import { ApiUrl } from '../../constants/api';
 
 const spaceStyle = {
 	height: '200px'
@@ -13,24 +15,33 @@ export class HomePage extends React.Component {
 		this.handleSelect = this.handleSelect.bind(this);
 		this.state = {
 			resultsFlag: false,
-			subcategory: null
+			subcategory: null,
+			category: null,
+			categories: []
 		}
 	}
 
 	componentDidMount() {
-		// setTimeout(() => this.setState({ resultsFlag: true }), 2000);
+		this._fetchCategories();
 	}
 
-	handleSelect(subcategory) {
-		this.setState({ subcategory });
+	async _fetchCategories() {
+		const categories = await axios.get(`${ApiUrl}/categories`);
+		this.setState({ categories: categories.data });
+	}
+
+	handleSelect(data) {
+		this.setState(data);
 	}
 
 	render() {
+		const categories = this.state.categories;
 		let resultsRender;
 
 		if (this.state.subcategory) {
 			resultsRender = <Results
-				selectedSubcategorie={this.state.subcategory}
+				category={this.state.category}
+				subcategory={this.state.subcategory}
 				onBackClick={() => this.setState({ subcategory: null })}
 			>
 			</Results>;
@@ -39,13 +50,15 @@ export class HomePage extends React.Component {
 		return (
 			<React.Fragment>
 				{/* <MainSearchBar></MainSearchBar> */}
-				<h2>Select any category to discover new stuff to learn :D</h2>
 				{!this.state.subcategory &&
-					<Categories onSelect={this.handleSelect}></Categories>
+					<React.Fragment>
+						<h2>Select any category to discover new stuff to learn :D</h2>
+						<Categories list={categories} onSelect={this.handleSelect}></Categories>
+					</React.Fragment>
 				}
 				{resultsRender}
 				<div style={spaceStyle}></div>
-			</React.Fragment >
+			</React.Fragment>
 		)
 	}
 }

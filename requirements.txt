@@ -1,0 +1,5 @@
+tensorflow
+numpy
+Flask
+itertools
+flask-cors
