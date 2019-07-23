@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Results.module.scss';
 import Axios from 'axios';
 import { ApiUrl } from '../../constants/api';
-import { ResultsList } from './list/ResultsList';
+import { ResultsList } from './ResultsList';
 
 export class Results extends React.Component {
 	constructor(props) {
@@ -21,18 +21,15 @@ export class Results extends React.Component {
 		this.props.onBackClick();
 	}
 
-	async _fetchCategory(data) {
+	async _fetchCategory(name) {
 		this.setState({ isLoading: true });
-		const req = await Axios.get(`${ApiUrl}/categories/${data.category.name}/results/${data.subcategory.name}`);
+		const req = await Axios.get(`${ApiUrl}/categories/${name}/results`);
 		this.setState({ list: req.data, isLoading: false });
-		console.log(req.data);
+		// console.log(req.data);
 	}
 
 	componentDidMount() {
-		this._fetchCategory({
-			category: this.props.category,
-			subcategory: this.props.subcategory || { name: '' }
-		});
+		this._fetchCategory((this.props.selected || {}).data.name);
 	}
 
 	render() {

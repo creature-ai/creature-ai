@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { LoaderSpinner } from '../../shared/LoaderSpinner';
+import { LoaderSpinner } from '../shared/LoaderSpinner';
 
 const ListItem = (props) => {
 	const item = props.item;

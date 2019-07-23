@@ -1,6 +1,6 @@
 import React from 'react';
 //import { MainSearchBar } from '../../components/main-search-bar/MainSearchBar';
-import { Categories } from '../../components/categories/list/Categories';
+import { Categories } from '../../components/categories/Categories';
 import { Results } from '../../components/results/Results';
 import axios from 'axios';
 import { ApiUrl } from '../../constants/api';
@@ -15,8 +15,7 @@ export class HomePage extends React.Component {
 		this.handleSelect = this.handleSelect.bind(this);
 		this.state = {
 			resultsFlag: false,
-			subcategory: null,
-			category: null,
+			selected: null,
 			categories: []
 		}
 	}
@@ -30,19 +29,18 @@ export class HomePage extends React.Component {
 		this.setState({ categories: categories.data });
 	}
 
-	handleSelect(data) {
-		this.setState(data);
+	handleSelect(value) {
+		this.setState({ selected: value });
 	}
 
 	render() {
 		const categories = this.state.categories;
 		let resultsRender;
 
-		if (this.state.subcategory) {
+		if (this.state.selected) {
 			resultsRender = <Results
-				category={this.state.category}
-				subcategory={this.state.subcategory}
-				onBackClick={() => this.setState({ subcategory: null })}
+				selected={this.state.selected}
+				onBackClick={() => this.setState({ selected: null })}
 			>
 			</Results>;
 		}
@@ -50,7 +48,7 @@ export class HomePage extends React.Component {
 		return (
 			<React.Fragment>
 				{/* <MainSearchBar></MainSearchBar> */}
-				{!this.state.subcategory &&
+				{!this.state.selected &&
 					<React.Fragment>
 						<h2>Select any category to discover new stuff to learn :D</h2>
 						<Categories list={categories} onSelect={this.handleSelect}></Categories>
