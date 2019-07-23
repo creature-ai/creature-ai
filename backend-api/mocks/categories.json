@@ -1,485 +1,104 @@
-{
-	"categories": [
-		{
-			"id": 1,
-			"name": "Technology",
-			"icon": "bolt",
-			"title": "Circuits",
-			"subcategories": [
-				{
-					"name": "Apple"
-				},
-				{
-					"name": "Arduino"
-				},
-				{
-					"name": "Art"
-				},
-				{
-					"name": "Assistive Tech"
-				},
-				{
-					"name": "Audio"
-				},
-				{
-					"name": "Cameras"
-				},
-				{
-					"name": "Clocks"
-				},
-				{
-					"name": "Computers"
-				},
-				{
-					"name": "Electronics"
-				},
-				{
-					"name": "Gadgets"
-				},
-				{
-					"name": "Lasers"
-				},
-				{
-					"name": "LEDs"
-				},
-				{
-					"name": "Linux"
-				},
-				{
-					"name": "Microcontrollers"
-				},
-				{
-					"name": "Microsoft"
-				},
-				{
-					"name": "Mobile"
-				},
-				{
-					"name": "Raspberry Pi"
-				},
-				{
-					"name": "Remote Control"
-				},
-				{
-					"name": "Reuse"
-				},
-				{
-					"name": "Robots"
-				},
-				{
-					"name": "Sensors"
-				},
-				{
-					"name": "Software"
-				},
-				{
-					"name": "Soldering"
-				},
-				{
-					"name": "Speakers"
-				},
-				{
-					"name": "Tools"
-				},
-				{
-					"name": "USB"
-				},
-				{
-					"name": "Wearables"
-				},
-				{
-					"name": "Websites"
-				}
-			]
-		},
-		{
-			"id": 2,
-			"name": "Workshop",
-			"icon": "tools",
-			"title": "Workshop",
-			"subcategories": [
-				{
-					"name": "3D Printing"
-				},
-				{
-					"name": "Cars"
-				},
-				{
-					"name": "CNC"
-				},
-				{
-					"name": "Electric Vehicles"
-				},
-				{
-					"name": "Energy"
-				},
-				{
-					"name": "Furniture"
-				},
-				{
-					"name": "Home Improvement"
-				},
-				{
-					"name": "Home Theater"
-				},
-				{
-					"name": "Hydroponics"
-				},
-				{
-					"name": "Knives"
-				},
-				{
-					"name": "Laser Cutting"
-				},
-				{
-					"name": "Lighting"
-				},
-				{
-					"name": "Metalworking"
-				},
-				{
-					"name": "Molds & Casting"
-				},
-				{
-					"name": "Motorcycles"
-				},
-				{
-					"name": "Organizing"
-				},
-				{
-					"name": "Pallets"
-				},
-				{
-					"name": "Repair"
-				},
-				{
-					"name": "Science"
-				},
-				{
-					"name": "Shelves"
-				},
-				{
-					"name": "Solar"
-				},
-				{
-					"name": "Tools"
-				},
-				{
-					"name": "Woodworking"
-				}
-			]
-		},
-		{
-			"id": 3,
-			"name": "Craft",
-			"icon": "ruler",
-			"title": "Craft",
-			"subcategories": [
-				{
-					"name": "Art"
-				},
-				{
-					"name": "Books & Journals"
-				},
-				{
-					"name": "Cardboard"
-				},
-				{
-					"name": "Cards"
-				},
-				{
-					"name": "Clay"
-				},
-				{
-					"name": "Costumes & Cosplay"
-				},
-				{
-					"name": "Digital Graphics"
-				},
-				{
-					"name": "Duct Tape"
-				},
-				{
-					"name": "Embroidery"
-				},
-				{
-					"name": "Fashion"
-				},
-				{
-					"name": "Felt"
-				},
-				{
-					"name": "Fiber Arts"
-				},
-				{
-					"name": "Gift Wrapping"
-				},
-				{
-					"name": "Jewelry"
-				},
-				{
-					"name": "Knitting & Crochet"
-				},
-				{
-					"name": "Leather"
-				},
-				{
-					"name": "Mason Jars"
-				},
-				{
-					"name": "No-Sew"
-				},
-				{
-					"name": "Paper"
-				},
-				{
-					"name": "Parties & Weddings"
-				},
-				{
-					"name": "Photography"
-				},
-				{
-					"name": "Printmaking"
-				},
-				{
-					"name": "Reuse"
-				},
-				{
-					"name": "Sewing"
-				},
-				{
-					"name": "Soapmaking"
-				}
-			]
-		},
-		{
-			"id": 4,
-			"name": "Food",
-			"icon": "hamburger",
-			"title": "Cooking",
-			"subcategories": [
-				{
-					"name": "Bacon"
-				},
-				{
-					"name": "BBQ & Grilling"
-				},
-				{
-					"name": "Beverages"
-				},
-				{
-					"name": "Bread"
-				},
-				{
-					"name": "Breakfast"
-				},
-				{
-					"name": "Cake"
-				},
-				{
-					"name": "Candy"
-				},
-				{
-					"name": "Canning & Preserving"
-				},
-				{
-					"name": "Cocktails & Mocktails"
-				},
-				{
-					"name": "Coffee"
-				},
-				{
-					"name": "Cookies"
-				},
-				{
-					"name": "Cupcakes"
-				},
-				{
-					"name": "Dessert"
-				},
-				{
-					"name": "Homebrew"
-				},
-				{
-					"name": "Main Course"
-				},
-				{
-					"name": "Pasta"
-				},
-				{
-					"name": "Pie"
-				},
-				{
-					"name": "Pizza"
-				},
-				{
-					"name": "Salad"
-				},
-				{
-					"name": "Sandwiches"
-				},
-				{
-					"name": "Snacks & Appetizers"
-				},
-				{
-					"name": "Soups & Stews"
-				}
-			]
-		},
-		{
-			"id": 5,
-			"name": "Home",
-			"icon": "couch",
-			"title": "Living",
-			"subcategories": [
-				{
-					"name": "Beauty"
-				},
-				{
-					"name": "Christmas"
-				},
-				{
-					"name": "Cleaning"
-				},
-				{
-					"name": "Decorating"
-				},
-				{
-					"name": "Education"
-				},
-				{
-					"name": "Gardening"
-				},
-				{
-					"name": "Halloween"
-				},
-				{
-					"name": "Health"
-				},
-				{
-					"name": "Hiding Places"
-				},
-				{
-					"name": "Holidays"
-				},
-				{
-					"name": "Homesteading"
-				},
-				{
-					"name": "Kids"
-				},
-				{
-					"name": "Kitchen"
-				},
-				{
-					"name": "LEGO & K'NEX"
-				},
-				{
-					"name": "Life Hacks"
-				},
-				{
-					"name": "Music"
-				},
-				{
-					"name": "Office Supply Hacks"
-				},
-				{
-					"name": "Organizing"
-				},
-				{
-					"name": "Pest Control"
-				},
-				{
-					"name": "Pets"
-				},
-				{
-					"name": "Pranks, Tricks, & Humor"
-				},
-				{
-					"name": "Relationships"
-				},
-				{
-					"name": "Toys & Games"
-				},
-				{
-					"name": "Travel"
-				}
-			]
-		},
-		{
-			"id": 6,
-			"name": "Outside",
-			"icon": "cloud-sun",
-			"title": "Outside",
-			"subcategories": [
-				{
-					"name": "Backyard"
-				},
-				{
-					"name": "Beach"
-				},
-				{
-					"name": "Bikes"
-				},
-				{
-					"name": "Birding"
-				},
-				{
-					"name": "Boats"
-				},
-				{
-					"name": "Camping"
-				},
-				{
-					"name": "Climbing"
-				},
-				{
-					"name": "Fire"
-				},
-				{
-					"name": "Fishing"
-				},
-				{
-					"name": "Hunting"
-				},
-				{
-					"name": "Kites"
-				},
-				{
-					"name": "Knots"
-				},
-				{
-					"name": "Launchers"
-				},
-				{
-					"name": "Paracord"
-				},
-				{
-					"name": "Rockets"
-				},
-				{
-					"name": "Siege Engines"
-				},
-				{
-					"name": "Skateboarding"
-				},
-				{
-					"name": "Snow"
-				},
-				{
-					"name": "Sports"
-				},
-				{
-					"name": "Survival"
-				}
-			]
-		},
-		{
-			"id": 7,
-			"name": "Teachers",
-			"icon": "chalkboard-teacher",
-			"title": "Teachers",
-			"subcategories": []
-		}
-	]
-}
+[
+	{
+		"icon": "table",
+		"label": "Data",
+		"name": "data",
+		"subcategories": []
+	},
+	{
+		"icon": "palette",
+		"label": "Design & Tinkering",
+		"name": "Design_Tinkering",
+		"subcategories": []
+	},
+	{
+		"icon": "globe-americas",
+		"label": "Earth Science",
+		"name": "Earth_Science",
+		"subcategories": []
+	},
+	{
+		"icon": "calculator",
+		"label": "Mathematics",
+		"name": "Mathematics",
+		"subcategories": []
+	},
+	{
+		"icon": "atom",
+		"label": "Nature of science",
+		"name": "Nature_of_Science",
+		"subcategories": [
+			{
+				"label": "Measurement",
+				"name": "Measurement"
+			}
+		]
+	},
+	{
+		"icon": "microchip",
+		"label": "Engineering & Technology",
+		"name": "Engineering_Technology",
+		"subcategories": [
+			{
+				"label": "Real-World Problems & Solutions",
+				"name": "Real_World_Problems_Solutions"
+			}
+		]
+	},
+	{
+		"icon": "flask",
+		"label": "Chemistry",
+		"name": "Chemistry",
+		"subcategories": [
+			{
+				"label": "Materials & Matter",
+				"name": "Materials_Matter"
+			}
+		]
+	},
+	{
+		"icon": "microscope",
+		"label": "Biology",
+		"name": "Biology",
+		"subcategories": [
+			{
+				"label": "Anatomy & Physiology",
+				"name": "Anatomy_Physiology"
+			}
+		]
+	},
+	{
+		"icon": "eye",
+		"label": "Perception",
+		"name": "Perception",
+		"subcategories": [
+			{
+				"label": "Light, Color & Seeing",
+				"name": "Light_Color_Seeing"
+			}
+		]
+	},
+	{
+		"icon": "magnet",
+		"label": "Physics",
+		"name": "Physics",
+		"subcategories": [
+			{
+				"label": "Electricity & Magnetism",
+				"name": "Electricity_Magnetism"
+			},
+			{
+				"label": "Waves",
+				"name": "Waves"
+			},
+			{
+				"label": "Light",
+				"name": "Light"
+			},
+			{
+				"label": "Mechanics",
+				"name": "Mechanics"
+			}
+		]
+	}
+]

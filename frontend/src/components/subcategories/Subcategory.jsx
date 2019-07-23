@@ -7,7 +7,7 @@ export class Subcategory extends React.Component {
 
 		return (
 			<ListGroupItem action onClick={() => this.props.onClick(item)}>
-				{item.name}
+				{item.label}
 			</ListGroupItem>
 		)
 	}

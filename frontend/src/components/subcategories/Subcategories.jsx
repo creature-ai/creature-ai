@@ -1,7 +1,7 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Subcategory } from '../item/Subcategory';
-import styles from '../Subcategories.module.scss';
+import { Subcategory } from './Subcategory';
+import styles from './Subcategories.module.scss';
 
 export class Subcategories extends React.Component {
 	constructor(props, context) {
@@ -18,7 +18,7 @@ export class Subcategories extends React.Component {
 
 		return (
 			<div className={'bg-white ' + styles.scrollCard}>
-				<ListGroup variant={'flush'}>
+				<ListGroup variant={'flush'} onMouseLeave={(e) => this.props.onMouseLeave(e)}>
 					{list.map(item =>
 						<Subcategory item={item} key={item.name} onClick={this.handleClick}></Subcategory>
 					)}

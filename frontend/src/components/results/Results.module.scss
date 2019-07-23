@@ -3,3 +3,25 @@
 	margin-right: 1.5rem;
 	cursor: pointer;
 }
+
+.desc {
+	overflow: hidden;
+	max-height: 150px;
+
+	&.open {
+		max-height: none;
+	}
+}
+
+.cardImgContainer {
+	max-height: 250px;
+	overflow: hidden;
+
+	&.open {
+		height: auto;
+	}
+}
+
+.cardImg {
+	width: 100%;
+}
