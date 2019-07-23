@@ -1,47 +1,44 @@
 from flask import Flask
+from flask_cors import CORS
 import json
 from os import path, sys, listdir
+
+from results import results
 
 ROOT_PATH = path.abspath(path.dirname(__file__))
 MOCKS_PATH = path.join(ROOT_PATH, 'mocks')
 
-# Change this path for your environment
-INSTRUCTABLES_DATA_PATH = path.join(
-    path.realpath(ROOT_PATH + '../../..'), 'demo-data', 'instructables_complete')
+RESULTS_PATH = path.join(MOCKS_PATH, 'results')
+CATEGORIES_FILE = path.join(MOCKS_PATH, 'categories.json')
+FILTERS_FILE = path.join(MOCKS_PATH, 'filters.json')
 
-print('Path:', INSTRUCTABLES_DATA_PATH)
-
-try:
-    from flask_cors import CORS  # The typical way to import flask-cors
-except ImportError:
-    # Path hack allows examples to be run without installation.
-    parentdir = path.dirname(path.dirname(path.abspath(__file__)))
-    sys.path.insert(0, parentdir)
-
-    from flask.ext.cors import CORS
+print('Results Path:', RESULTS_PATH)
+print('Categories file path:', CATEGORIES_FILE)
 
 app = Flask(__name__)
 
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app)
-categories_file = []
+categories = []
+filters = []
 
-with open(path.join(MOCKS_PATH, 'categories.json'), 'r') as json_file:
-    categories_file = json.load(json_file)
+with open(CATEGORIES_FILE, 'r') as json_file:
+    categories = json.load(json_file)
+
+with open(FILTERS_FILE, 'r') as json_file:
+    filters = json.load(json_file)
 
 
 @app.route('/categories')
 def list_categories():
-    response = json.dumps(categories_file['categories'])
-
-    return response
+    return json.dumps(categories)
 
 
 @app.route('/categories/<name>')
 def get_category_by_name(name):
     response = None
-    for category in categories_file['categories']:
+    for category in categories:
         if (category['name'] == name):
             response = category
 
@@ -51,47 +48,15 @@ def get_category_by_name(name):
     return response
 
 
-def get_category_results_list(name):
-    response = []
-    files_path = INSTRUCTABLES_DATA_PATH
-    file_names = onlyfiles = [f for f in listdir(files_path) if path.isfile(path.join(files_path, f))]
+@app.route('/categories/<category>/results')
+def get_category_results(category):
+    results_list = results.get_results(RESULTS_PATH, category)
 
-    for file in file_names:
-        print(file)
-        if file.find(name.lower()) > -1:
-            try:
-                with open(path.join(files_path, file), 'r') as file:
-                    response = response + json.load(file)
-            except FileNotFoundError:
-                print('File not found: ')
+    return json.dumps(results_list)
 
-    return response
-
-
-def filter_by_subcategory(subcategory, data_list):
-    new_list = [x for x in data_list if x['channel'] == subcategory]
-
-    return new_list
-
-def map_result(element):
-    new_elem = {}
-    if len(element['steps']):
-        step = element['steps'][0]
-        if len(step['imgs']):
-            new_elem['image'] = step['imgs'][0]
-
-
-@app.route('/categories/<category>/results', defaults={'subcategory': None})
-@app.route('/categories/<category>/results/<subcategory>')
-def get_category_results(category, subcategory):
-    results_list = get_category_results_list(category)
-
-    if subcategory:
-        response = filter_by_subcategory(subcategory, results_list)
-    else:
-        response = results_list
-
-    return json.dumps(response)
+@app.route('/filters')
+def get_filters():
+    return json.dumps(filters)
 
 
 if __name__ == '__main__':

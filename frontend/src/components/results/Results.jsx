@@ -23,9 +23,8 @@ export class Results extends React.Component {
 
 	async _fetchCategory(name) {
 		this.setState({ isLoading: true });
-		const req = await Axios.get(`${ApiUrl}/categories/${name}/results`);
-		this.setState({ list: req.data, isLoading: false });
-		// console.log(req.data);
+		const res = await Axios.get(`${ApiUrl}/categories/${name}/results`);
+		this.setState({ list: res.data, isLoading: false });
 	}
 
 	componentDidMount() {
@@ -33,11 +32,27 @@ export class Results extends React.Component {
 	}
 
 	render() {
-		const title = <h2 className="text-primary">
-			<FontAwesomeIcon icon={'arrow-left'} className={styles.backIcon} onClick={this.handleBack}></FontAwesomeIcon> Results
-		</h2>;
-		const { category, subcategory } = this.props;
+		const { selected, filters } = this.props;
 		const { list, isLoading } = this.state;
+		let resultingList = [];
+
+		if (!filters.category && !filters.channel) {
+			resultingList = list.slice();
+		} else {
+			resultingList = list.filter(x =>
+				x.category.toLowerCase() === filters.category.toLowerCase() &&
+				(
+					filters.channel ?
+						x.channel.toLowerCase() === filters.channel.toLowerCase() :
+						true
+				)
+			);
+		}
+
+		const title = <h2 className="text-primary">
+			<FontAwesomeIcon icon={'arrow-left'} className={styles.backIcon} onClick={this.handleBack}></FontAwesomeIcon>
+			Results {resultingList.length ? '(' + resultingList.length + ')' : ''}
+		</h2>;
 
 		return (
 			<div>
@@ -48,28 +63,21 @@ export class Results extends React.Component {
 				</Row>
 				<Row className="pt-2 pb-2">
 					<Col xs={12}>
-						{subcategory &&
+						{selected &&
 							<div>
 								<p className="secondary-text mb-2">
 									You selected:
 								</p>
 								<p className="secondary-text mb-1">
 									<strong className="pl-2 pr-1">
-										Category:
-								</strong>
-									{category.name}
-								</p>
-								<p className="secondary-text">
-									<strong className="pl-2 pr-1">
-										Subcategory:
-								</strong>
-									{subcategory.name}
+										{selected.data.label}
+									</strong>
 								</p>
 							</div>
 						}
 					</Col>
 				</Row>
-				<ResultsList list={list} loading={isLoading}></ResultsList>
+				<ResultsList list={resultingList} loading={isLoading}></ResultsList>
 			</div>
 		)
 	}

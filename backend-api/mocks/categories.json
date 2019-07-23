@@ -1,106 +1,104 @@
-{
-	"categories": [
-		{
-			"icon": "table",
-			"label": "Data",
-			"name": "data",
-			"subcategories": []
-		},
-		{
-			"icon": "palette",
-			"label": "Design & Tinkering",
-			"name": "Design_Tinkering",
-			"subcategories": []
-		},
-		{
-			"icon": "globe-americas",
-			"label": "Earth Science",
-			"name": "Earth_Science",
-			"subcategories": []
-		},
-		{
-			"icon": "calculator",
-			"label": "Mathematics",
-			"name": "Mathematics",
-			"subcategories": []
-		},
-		{
-			"icon": "atom",
-			"label": "Nature of science",
-			"name": "Nature_of_Science",
-			"subcategories": [
-				{
-					"label": "Measurement",
-					"name": "Measurement"
-				}
-			]
-		},
-		{
-			"icon": "microchip",
-			"label": "Engineering & Technology",
-			"name": "Engineering_Technology",
-			"subcategories": [
-				{
-					"label": "Real-World Problems & Solutions",
-					"name": "Real_World_Problems_Solutions"
-				}
-			]
-		},
-		{
-			"icon": "flask",
-			"label": "Chemistry",
-			"name": "Chemistry",
-			"subcategories": [
-				{
-					"label": "Materials & Matter",
-					"name": "Materials_Matter"
-				}
-			]
-		},
-		{
-			"icon": "microscope",
-			"label": "Biology",
-			"name": "Biology",
-			"subcategories": [
-				{
-					"label": "Anatomy & Physiology",
-					"name": "Anatomy_Physiology"
-				}
-			]
-		},
-		{
-			"icon": "eye",
-			"label": "Perception",
-			"name": "Perception",
-			"subcategories": [
-				{
-					"label": "Light, Color & Seeing",
-					"name": "Light_Color_Seeing"
-				}
-			]
-		},
-		{
-			"icon": "magnet",
-			"label": "Physics",
-			"name": "Physics",
-			"subcategories": [
-				{
-					"label": "Electricity & Magnetism",
-					"name": "Electricity_Magnetism"
-				},
-				{
-					"label": "Waves",
-					"name": "Waves"
-				},
-				{
-					"label": "Light",
-					"name": "Light"
-				},
-				{
-					"label": "Mechanics",
-					"name": "Mechanics"
-				}
-			]
-		}
-	]
-}
+[
+	{
+		"icon": "table",
+		"label": "Data",
+		"name": "data",
+		"subcategories": []
+	},
+	{
+		"icon": "palette",
+		"label": "Design & Tinkering",
+		"name": "Design_Tinkering",
+		"subcategories": []
+	},
+	{
+		"icon": "globe-americas",
+		"label": "Earth Science",
+		"name": "Earth_Science",
+		"subcategories": []
+	},
+	{
+		"icon": "calculator",
+		"label": "Mathematics",
+		"name": "Mathematics",
+		"subcategories": []
+	},
+	{
+		"icon": "atom",
+		"label": "Nature of science",
+		"name": "Nature_of_Science",
+		"subcategories": [
+			{
+				"label": "Measurement",
+				"name": "Measurement"
+			}
+		]
+	},
+	{
+		"icon": "microchip",
+		"label": "Engineering & Technology",
+		"name": "Engineering_Technology",
+		"subcategories": [
+			{
+				"label": "Real-World Problems & Solutions",
+				"name": "Real_World_Problems_Solutions"
+			}
+		]
+	},
+	{
+		"icon": "flask",
+		"label": "Chemistry",
+		"name": "Chemistry",
+		"subcategories": [
+			{
+				"label": "Materials & Matter",
+				"name": "Materials_Matter"
+			}
+		]
+	},
+	{
+		"icon": "microscope",
+		"label": "Biology",
+		"name": "Biology",
+		"subcategories": [
+			{
+				"label": "Anatomy & Physiology",
+				"name": "Anatomy_Physiology"
+			}
+		]
+	},
+	{
+		"icon": "eye",
+		"label": "Perception",
+		"name": "Perception",
+		"subcategories": [
+			{
+				"label": "Light, Color & Seeing",
+				"name": "Light_Color_Seeing"
+			}
+		]
+	},
+	{
+		"icon": "magnet",
+		"label": "Physics",
+		"name": "Physics",
+		"subcategories": [
+			{
+				"label": "Electricity & Magnetism",
+				"name": "Electricity_Magnetism"
+			},
+			{
+				"label": "Waves",
+				"name": "Waves"
+			},
+			{
+				"label": "Light",
+				"name": "Light"
+			},
+			{
+				"label": "Mechanics",
+				"name": "Mechanics"
+			}
+		]
+	}
+]
